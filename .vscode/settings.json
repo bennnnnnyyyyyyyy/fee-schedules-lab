@@ -4,9 +4,13 @@
         "ADLT",
         "CLFS",
         "clia",
+        "EXTENDEDLONGDESC",
         "hcpcs",
         "LONGDESC",
+        "NUDT",
         "pama",
-        "SHORTDESC"
+        "SHORTDESC",
+        "TPMT",
+        "VKORC"
     ]
 }

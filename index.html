@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medicare CLFS Fee Schedule Calculator (CY2026)</title>
-  <meta name="description" content="Interactive lookup and calculator for Medicare Clinical Laboratory Fee Schedule (CLFS) CY2026 rates and PAMA data.">
+  <title>Lab Revenue Calculator — Prime AD Solutions</title>
+  <meta name="description" content="Interactive Medicare reimbursement estimator for PGx, UTI, Immunodeficiency, and CGx lab campaigns. Powered by CY2026 CLFS rates.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./styles.css">
@@ -23,18 +23,23 @@
     <!-- Sidebar Navigation -->
     <aside id="sidebar">
       <div class="sidebar-brand">
-        <div class="brand-icon">🧪</div>
+        <div class="brand-icon">💰</div>
         <div class="brand-text">
-          <div class="brand-title">CLFS Explorer</div>
-          <div class="brand-sub">CY2026 Q3V1</div>
+          <div class="brand-title">Lab Revenue</div>
+          <div class="brand-sub">Prime AD Solutions</div>
         </div>
       </div>
 
       <div class="nav-section-label">Navigation</div>
 
-      <button class="nav-item active" data-view="browse">
+      <button class="nav-item active" data-view="calculator">
+        <span class="nav-icon">💰</span>
+        <span>Revenue Calculator</span>
+      </button>
+
+      <button class="nav-item" data-view="browse">
         <span class="nav-icon">🔍</span>
-        <span>Browse Codes</span>
+        <span>Browse Fee Schedule</span>
       </button>
 
       <button class="nav-item" data-view="analytics">
@@ -47,7 +52,7 @@
           <span>☀️</span>
           <span>Light Mode</span>
         </button>
-        <div class="vintage-badge">CMS CY2026 Rates</div>
+        <div class="vintage-badge">CMS CY2026 CLFS Rates</div>
       </div>
     </aside>
 

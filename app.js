@@ -77,7 +77,7 @@ export function applySort(records, col, dir) {
 // ---------------------------------------------------------------------------
 let currentView = null;
 
-/** @param {'browse'|'analytics'|'detail'} view @param {*} [payload] */
+/** @param {'calculator'|'browse'|'analytics'|'detail'} view @param {*} [payload] */
 async function navigate(view, payload = null) {
   currentView = view;
 
@@ -88,7 +88,10 @@ async function navigate(view, payload = null) {
   const main = document.getElementById('view-container');
   main.innerHTML = '';
 
-  if (view === 'browse') {
+  if (view === 'calculator') {
+    const { renderCalculator } = await import('./views/calculator.js');
+    renderCalculator(main, ALL_RECORDS);
+  } else if (view === 'browse') {
     const { renderBrowse } = await import('./views/browse.js');
     renderBrowse(main, ALL_RECORDS, state, navigate);
   } else if (view === 'analytics') {
@@ -142,7 +145,7 @@ async function boot() {
   try {
     ALL_RECORDS = await loadData();
     document.getElementById('loading-overlay').classList.add('hidden');
-    navigate('browse');
+    navigate('calculator');
   } catch (err) {
     const overlay = document.getElementById('loading-overlay');
     overlay.innerHTML = `
