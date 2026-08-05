@@ -143,11 +143,12 @@ def load_private_payer(path: Path) -> dict[str, dict]:
 
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        for row in reader:
-            hcpcs = row["hcpcs_cd"].strip()
+        for raw_row in reader:
+            row = {k.strip(): v.strip() for k, v in raw_row.items() if k}
+            hcpcs = row.get("hcpcs_cd", "")
             try:
-                price = float(row["PRICE_AMT"].strip())
-                vol = float(row["VOL_TXT"].strip())
+                price = float(row.get("PRICE_AMT", ""))
+                vol = float(row.get("VOL_TXT", ""))
             except ValueError:
                 continue
             if hcpcs not in raw:

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicare CLFS Fee Schedule Calculator (CY2026)</title>
+  <meta name="description" content="Interactive lookup and calculator for Medicare Clinical Laboratory Fee Schedule (CLFS) CY2026 rates and PAMA data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Chart.js CDN for Analytics view -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <div style="font-size:14px; font-weight:500; color:var(--text-secondary);">Loading CY2026 Fee Schedule data...</div>
+  </div>
+
+  <div id="app">
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">🧪</div>
+        <div class="brand-text">
+          <div class="brand-title">CLFS Explorer</div>
+          <div class="brand-sub">CY2026 Q3V1</div>
+        </div>
+      </div>
+
+      <div class="nav-section-label">Navigation</div>
+
+      <button class="nav-item active" data-view="browse">
+        <span class="nav-icon">🔍</span>
+        <span>Browse Codes</span>
+      </button>
+
+      <button class="nav-item" data-view="analytics">
+        <span class="nav-icon">📊</span>
+        <span>Analytics</span>
+      </button>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Theme">
+          <span>☀️</span>
+          <span>Light Mode</span>
+        </button>
+        <div class="vintage-badge">CMS CY2026 Rates</div>
+      </div>
+    </aside>
+
+    <!-- Main View Container -->
+    <main id="main">
+      <div id="view-container" style="display:flex; flex-direction:column; height:100%;"></div>
+    </main>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
