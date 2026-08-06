@@ -920,3 +920,11 @@ td.desc-cell {
   .calc-engine { flex-direction: column; }
   .calc-right { width: 100%; position: static; }
 }
+
+.add-code-item:hover {
+  background: var(--bg-elevated) !important;
+}
+
+.remove-code-btn:hover {
+  color: var(--red) !important;
+}
