@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime AD Solutions | Laboratory Campaign & Revenue Model</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090b;
+      --card-bg: #121215;
+      --card-sub: #18181c;
+      --card-hover: #1f1f24;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-light: rgba(255, 255, 255, 0.16);
+      
+      --text-white: #ffffff;
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Top Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border-light);
+      background: #000;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .brand-text-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .brand-text-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Scenario Mode Toggle */
+    .scenario-toggle-wrap {
+      display: flex;
+      align-items: center;
+      background: #18181c;
+      border: 1px solid var(--border-light);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .scenario-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .scenario-btn.active {
+      background: #ffffff;
+      color: #000000;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .badge-live::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Container */
+    main {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 48px 48px 96px;
+    }
+
+    /* Section Headers */
+    .sec-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-tag::before {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: var(--text-dim);
+    }
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+
+    /* Step 1: Tier Selector */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .tier-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .tier-box:hover {
+      border-color: var(--border-light);
+      background: var(--card-sub);
+      transform: translateY(-2px);
+    }
+    .tier-box.active {
+      border-color: #ffffff;
+      background: #18181c;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .tier-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .tier-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .tier-box.active .tier-pill {
+      color: #ffffff;
+    }
+
+    .tier-indicator {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tier-box.active .tier-indicator {
+      border-color: #ffffff;
+      background: #ffffff;
+    }
+    .tier-box.active .tier-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #000000;
+    }
+
+    .tier-price-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 2px;
+    }
+    .tier-price-num span {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-dim);
+    }
+
+    .tier-sub-title {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .tier-specs-list {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+      flex-grow: 1;
+    }
+    .tier-spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tier-spec-row .lbl {
+      color: var(--text-muted);
+    }
+    .tier-spec-row .val {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .popular-ribbon {
+      position: absolute;
+      top: -11px;
+      left: 24px;
+      background: #ffffff;
+      color: #000000;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* Step 2: 4 Campaigns Grid */
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    .camp-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease;
+    }
+    .camp-card:hover {
+      border-color: var(--border-light);
+    }
+
+    .camp-header {
+      padding: 22px 28px;
+      background: var(--card-sub);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .camp-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .camp-code-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border-light);
+      background: #000;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13px;
+      color: #ffffff;
+    }
+    .camp-name-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .camp-name-subtitle {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .camp-rate-box {
+      text-align: right;
+    }
+    .camp-rate-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .camp-rate-amount {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .camp-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .vol-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .vol-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .vol-display {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      background: #27272a;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #000000;
+      box-shadow: 0 0 0 1px #ffffff;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .cpt-select-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+    }
+    .cpt-chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .cpt-btn {
+      background: #18181b;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .cpt-btn:hover {
+      border-color: var(--border-light);
+      color: #ffffff;
+    }
+    .cpt-btn.active {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .camp-subtotal-panel {
+      background: #18181c;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .subtotal-tag {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .subtotal-figure {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Scope of Work & Plan Breakdown */
+    .details-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 56px;
+    }
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .detail-col {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .detail-heading {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .detail-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+    .detail-list li::before {
+      content: '—';
+      color: #ffffff;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ship-badge {
+      margin-top: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .ship-included {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .ship-excluded {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+    }
+
+    /* Workflow Stepper */
+    .flow-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 56px;
+    }
+    .flow-stepper {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 24px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .step-item {
+      flex: 1;
+      min-width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+    .step-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      right: -50%;
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      z-index: 1;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #18181c;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    .step-item.highlight .step-num {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    }
+    .step-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.4;
+      max-width: 100px;
+    }
+    .step-item.highlight .step-label {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Executive Revenue Projection Summary */
+    .summary-card {
+      background: #121215;
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .table-revenue {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .table-revenue th {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .table-revenue td {
+      padding: 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .table-revenue td.item-title {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .table-revenue td.mono {
+      font-family: var(--font-mono);
+    }
+    .table-revenue tfoot td {
+      padding: 24px 16px;
+      border-top: 2px solid var(--border-light);
+      border-bottom: none;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .grand-total-amount {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .notice-card {
+      margin-top: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .notice-card strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 1024px) {
+      header { padding: 0 24px; }
+      main { padding: 32px 24px 64px; }
+      .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+      .campaign-grid { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: 1fr; }
+      .nav-controls { flex-direction: column; align-items: flex-end; gap: 8px; }
+    }
+    @media (max-width: 640px) {
+      .tiers-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand-wrap">
+    <div class="brand-logo">PA</div>
+    <div>
+      <div class="brand-text-name">Prime AD Solutions</div>
+      <div class="brand-text-sub">Laboratory Patient Acquisition · Revenue Model</div>
+    </div>
+  </div>
+
+  <div class="nav-controls">
+    <div class="scenario-toggle-wrap">
+      <button class="scenario-btn active" id="btn-mode-standard" onclick="setBillingScenario('standard')">Standard Baseline</button>
+      <button class="scenario-btn" id="btn-mode-max" onclick="setBillingScenario('max')">Max Allowable Ceiling</button>
+    </div>
+    <div class="badge-live">
+      CY2026 CMS Fee Schedule
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- STEP 1: MONTHLY BUDGET TIERS -->
+  <div class="sec-tag">Step 01</div>
+  <h2 class="sec-title">Select Monthly Budget Plan</h2>
+
+  <div class="tiers-grid">
+
+    <!-- STARTER -->
+    <div class="tier-box starter" onclick="selectTier('starter')">
+      <div class="tier-top">
+        <span class="tier-pill">Starter</span>
+        <div class="tier-indicator"></div>
+      </div>
+      <div class="tier-price-num">$10,000 <span>/ mo</span></div>
+      <div class="tier-sub-title">Launch Campaign</div>
+      <div class="tier-specs-list">
+        <div class="tier-spec-row">
+          <span class="lbl">Immunodeficiency:</span>
+          <span class="val">8–10 pts</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">Pharmacogenomics (PGx):</span>
+          <span class="val">30–35 pts</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">UTI Molecular Panels:</span>
+          <span class="val">64–68 pts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="tier-box growth active" onclick="selectTier('growth')">
+      <div class="popular-ribbon">Most Popular</div>
+      <div class="tier-top">
+        <span class="tier-pill">Growth</span>
+        <div class="tier-indicator"></div>
+      </div>
+      <div class="tier-price-num">$25,000 <span>/ mo</span></div>
+      <div class="tier-sub-title">Multi-Line Scale</div>
+      <div class="tier-specs-list">
+        <div class="tier-spec-row">
+          <span class="lbl">Immunodeficiency:</span>
+          <span class="val">21–23 pts</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">Pharmacogenomics (PGx):</span>
+          <span class="val">77–83 pts</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">UTI Molecular Panels:</span>
+          <span class="val">162–182 pts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCALE -->
+    <div class="tier-box scale" onclick="selectTier('scale')">
+      <div class="tier-top">
+        <span class="tier-pill">Scale</span>
+        <div class="tier-indicator"></div>
+      </div>
+      <div class="tier-price-num">$50,000 <span>/ mo</span></div>
+      <div class="tier-sub-title">Enterprise Capacity</div>
+      <div class="tier-specs-list">
+        <div class="tier-spec-row">
+          <span class="lbl">Immunodeficiency:</span>
+          <span class="val">44–48 pts</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">Pharmacogenomics (PGx):</span>
+          <span class="val">158–170 pts*</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">UTI Molecular Panels:</span>
+          <span class="val">345–365 pts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSTOM -->
+    <div class="tier-box custom" onclick="selectTier('custom')">
+      <div class="tier-top">
+        <span class="tier-pill">Custom</span>
+        <div class="tier-indicator"></div>
+      </div>
+      <div class="tier-price-num">Custom <span>/ mo</span></div>
+      <div class="tier-sub-title">Tailored Allocation</div>
+      <div class="tier-specs-list">
+        <div class="tier-spec-row">
+          <span class="lbl">Immunodeficiency:</span>
+          <span class="val">Tailored</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">Pharmacogenomics (PGx):</span>
+          <span class="val">Tailored</span>
+        </div>
+        <div class="tier-spec-row">
+          <span class="lbl">UTI Molecular Panels:</span>
+          <span class="val">Tailored</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STEP 2: 4 CAMPAIGNS & REIMBURSEMENT PROJECTIONS -->
+  <div class="sec-tag">Step 02</div>
+  <h2 class="sec-title">Campaign Volumes &amp; CPT Billing Rate Selection</h2>
+
+  <div class="campaign-grid">
+
+    <!-- 1. IMMUNODEFICIENCY NGS -->
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-header-left">
+          <div class="camp-code-icon">NGS</div>
+          <div>
+            <div class="camp-name-title">Immunodeficiency NGS</div>
+            <div class="camp-name-subtitle">Full Service (Kit Shipping Included) · ICD-10 D84.9</div>
+          </div>
+        </div>
+        <div class="camp-rate-box">
+          <div class="camp-rate-label">Allowable / Claim</div>
+          <div class="camp-rate-amount" id="rate-ngs-disp">$2,449</div>
+        </div>
+      </div>
+      <div class="camp-body">
+        <div class="vol-row">
+          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-display" id="vol-ngs-disp">22 pts</span>
+        </div>
+        <input type="range" id="slider-ngs" min="1" max="100" value="22" oninput="onSliderChange('ngs')">
+
+        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-chips-group" id="cpts-ngs">
+          <button class="cpt-btn active" data-rate="2448.56" data-cpt="81443" onclick="onCPTSelect('ngs', this)">81443 · $2,449 (Standard Inh. Panel)</button>
+          <button class="cpt-btn" data-rate="2000.00" data-cpt="81408" onclick="onCPTSelect('ngs', this)">81408 · $2,000 (Mopath Level 9)</button>
+          <button class="cpt-btn" data-rate="846.27" data-cpt="81407" onclick="onCPTSelect('ngs', this)">81407 · $846 (Mopath Level 8)</button>
+          <button class="cpt-btn" data-rate="4780.00" data-cpt="81415" onclick="onCPTSelect('ngs', this)">81415 · $4,780 (Full Exome Proband)</button>
+        </div>
+
+        <div class="camp-subtotal-panel">
+          <span class="subtotal-tag">Estimated Monthly Billing Total</span>
+          <span class="subtotal-figure" id="sub-ngs-disp">$53,868</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. PHARMACOGENOMICS (PGX) -->
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-header-left">
+          <div class="camp-code-icon">PGx</div>
+          <div>
+            <div class="camp-name-title">Pharmacogenomics (PGx)</div>
+            <div class="camp-name-subtitle">Shipping Excluded · Multi-Gene Drug Metabolism</div>
+          </div>
+        </div>
+        <div class="camp-rate-box">
+          <div class="camp-rate-label">Allowable / Claim</div>
+          <div class="camp-rate-amount" id="rate-pgx-disp">$917</div>
+        </div>
+      </div>
+      <div class="camp-body">
+        <div class="vol-row">
+          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-display" id="vol-pgx-disp">80 pts</span>
+        </div>
+        <input type="range" id="slider-pgx" min="1" max="250" value="80" oninput="onSliderChange('pgx')">
+
+        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-chips-group" id="cpts-pgx">
+          <button class="cpt-btn active" data-rate="917.08" data-cpt="81418" onclick="onCPTSelect('pgx', this)">81418 · $917 (Standard 6+ Gene Panel)</button>
+          <button class="cpt-btn" data-rate="450.91" data-cpt="81226" onclick="onCPTSelect('pgx', this)">81226 · $451 (CYP2D6 Targeted)</button>
+          <button class="cpt-btn" data-rate="676.37" data-cpt="0070U" onclick="onCPTSelect('pgx', this)">0070U · $676 (CYP2D6 Multi-Variant)</button>
+          <button class="cpt-btn" data-rate="1336.09" data-cpt="0347U" onclick="onCPTSelect('pgx', this)">0347U · $1,336 (16-Gene Full Panel)</button>
+        </div>
+
+        <div class="camp-subtotal-panel">
+          <span class="subtotal-tag">Estimated Monthly Billing Total</span>
+          <span class="subtotal-figure" id="sub-pgx-disp">$73,366</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. UTI MOLECULAR -->
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-header-left">
+          <div class="camp-code-icon">UTI</div>
+          <div>
+            <div class="camp-name-title">UTI Molecular Panel</div>
+            <div class="camp-name-subtitle">Shipping Excluded · PCR Pathogen Identification + ABR</div>
+          </div>
+        </div>
+        <div class="camp-rate-box">
+          <div class="camp-rate-label">Allowable / Claim</div>
+          <div class="camp-rate-amount" id="rate-uti-disp">$263</div>
+        </div>
+      </div>
+      <div class="camp-body">
+        <div class="vol-row">
+          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-display" id="vol-uti-disp">172 pts</span>
+        </div>
+        <input type="range" id="slider-uti" min="1" max="500" value="172" oninput="onSliderChange('uti')">
+
+        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-chips-group" id="cpts-uti">
+          <button class="cpt-btn active" data-rate="262.99" data-cpt="87506" onclick="onCPTSelect('uti', this)">87506 · $263 (Standard 6-11 Targets)</button>
+          <button class="cpt-btn" data-rate="416.78" data-cpt="87507" onclick="onCPTSelect('uti', this)">87507 · $417 (Comprehensive 12-25)</button>
+          <button class="cpt-btn" data-rate="128.29" data-cpt="87505" onclick="onCPTSelect('uti', this)">87505 · $128 (Targeted 3-5 Pathogens)</button>
+          <button class="cpt-btn" data-rate="70.20" data-cpt="87801" onclick="onCPTSelect('uti', this)">87801 · $70 (Multi-Organism DNA)</button>
+        </div>
+
+        <div class="camp-subtotal-panel">
+          <span class="subtotal-tag">Estimated Monthly Billing Total</span>
+          <span class="subtotal-figure" id="sub-uti-disp">$45,234</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CGX CANCER GENETIC -->
+    <div class="camp-card">
+      <div class="camp-header">
+        <div class="camp-header-left">
+          <div class="camp-code-icon">CGX</div>
+          <div>
+            <div class="camp-name-title">CGX Cancer Genetics</div>
+            <div class="camp-name-subtitle">Hereditary Cancer Syndrome Screening · Multi-Gene Panel</div>
+          </div>
+        </div>
+        <div class="camp-rate-box">
+          <div class="camp-rate-label">Allowable / Claim</div>
+          <div class="camp-rate-amount" id="rate-cgx-disp">$1,304</div>
+        </div>
+      </div>
+      <div class="camp-body">
+        <div class="vol-row">
+          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-display" id="vol-cgx-disp">25 pts</span>
+        </div>
+        <input type="range" id="slider-cgx" min="1" max="150" value="25" oninput="onSliderChange('cgx')">
+
+        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-chips-group" id="cpts-cgx">
+          <button class="cpt-btn active" data-rate="1303.95" data-cpt="81432" onclick="onCPTSelect('cgx', this)">81432 · $1,304 (Standard Hereditary Breast/Ovarian)</button>
+          <button class="cpt-btn" data-rate="1303.95" data-cpt="81435" onclick="onCPTSelect('cgx', this)">81435 · $1,304 (Hereditary Colon / Lynch)</button>
+          <button class="cpt-btn" data-rate="597.91" data-cpt="81445" onclick="onCPTSelect('cgx', this)">81445 · $598 (Targeted 5-50 Genes)</button>
+          <button class="cpt-btn" data-rate="2919.60" data-cpt="81455" onclick="onCPTSelect('cgx', this)">81455 · $2,920 (Comprehensive 51+ Gene NGS)</button>
+        </div>
+
+        <div class="camp-subtotal-panel">
+          <span class="subtotal-tag">Estimated Monthly Billing Total</span>
+          <span class="subtotal-figure" id="sub-cgx-disp">$32,599</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STEP 3: SCOPE OF WORK BREAKDOWN -->
+  <div class="details-box">
+    <div class="sec-tag">Scope of Work</div>
+    <h2 class="sec-title" style="font-size:22px;">Campaign Inclusions &amp; Operational Structure</h2>
+
+    <div class="details-grid">
+      <div class="detail-col">
+        <div class="detail-heading">Immunodeficiency (Full Service)</div>
+        <ul class="detail-list">
+          <li>Custom Digital Advertising (Meta &amp; Google)</li>
+          <li>In-house Patient Intake &amp; Qualification Staff</li>
+          <li>Licensed Telehealth Doctor Consultation</li>
+          <li>Medical Record &amp; Consent Document Retrieval</li>
+          <li>Kit Fulfillment Direct to Patient</li>
+          <li>Specimen Collection Guidance &amp; Follow-up</li>
+        </ul>
+        <div class="ship-badge ship-included">✓ Kit Shipping Included in Tier Retainer</div>
+      </div>
+
+      <div class="detail-col">
+        <div class="detail-heading">UTI &amp; PGx (Full Service)</div>
+        <ul class="detail-list">
+          <li>Custom Digital Advertising (Meta &amp; Google)</li>
+          <li>In-house Patient Intake &amp; Qualification Staff</li>
+          <li>Licensed Telehealth Doctor Consultation</li>
+          <li>Requisition Preparation &amp; Clinical Notes</li>
+          <li>Medical History &amp; Qualification Retrieval</li>
+          <li>Kit Chasing &amp; UPS Return Pickup Dispatch</li>
+        </ul>
+        <div class="ship-badge ship-excluded">ℹ️ Kit Shipping Billed Separately</div>
+      </div>
+
+      <div class="detail-col">
+        <div class="detail-heading">Payment &amp; Launch Timeline</div>
+        <ul class="detail-list">
+          <li><strong>Months 1–2:</strong> 50% upfront, 50% upon delivery of monthly cap</li>
+          <li><strong>Month 3+:</strong> 100% upfront</li>
+          <li>Retainer paid 1 week prior to launch to fund advertising</li>
+          <li>Immediate lead acquisition upon campaign activation</li>
+          <li>First completed lab specimens typically arrive ~Week 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: PATIENT PIPELINE -->
+  <div class="flow-card">
+    <div class="sec-tag">Patient Pipeline</div>
+    <h2 class="sec-title" style="font-size:22px;">End-to-End Workflow (Ad to Lab Delivery)</h2>
+
+    <div class="flow-stepper">
+      <div class="step-item highlight">
+        <div class="step-num">01</div>
+        <div class="step-label">Ad Launch (Meta/Google)</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-label">Opt-In &amp; Intake Form</div>
+      </div>
+      <div class="step-item highlight">
+        <div class="step-num">03</div>
+        <div class="step-label">Eligibility &amp; Insurance Check</div>
+      </div>
+      <div class="step-item highlight">
+        <div class="step-num">04</div>
+        <div class="step-label">Telehealth Doctor Consult</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">05</div>
+        <div class="step-label">Kit Delivered to Patient</div>
+      </div>
+      <div class="step-item highlight">
+        <div class="step-num">06</div>
+        <div class="step-label">Kit Chasing &amp; UPS Pickup</div>
+      </div>
+      <div class="step-item highlight">
+        <div class="step-num">07</div>
+        <div class="step-label">Lab Delivery + Requisition + CN</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">08</div>
+        <div class="step-label">Lab Processing &amp; Billing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: EXECUTIVE PROJECTION TABLE -->
+  <div class="summary-card">
+    <div class="sec-tag">Executive Model</div>
+    <h2 class="sec-title" style="font-size:24px;">Monthly Revenue Projection Model</h2>
+
+    <table class="table-revenue">
+      <thead>
+        <tr>
+          <th>Campaign Line</th>
+          <th>Target CPT Code</th>
+          <th>Allowable / Claim (CLFS '26)</th>
+          <th>Monthly Patient Target</th>
+          <th>Monthly Gross Allowable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-title">Immunodeficiency NGS</td>
+          <td class="mono" id="t-cpt-ngs">81443</td>
+          <td class="mono" id="t-rate-ngs">$2,448.56</td>
+          <td class="mono" id="t-vol-ngs">22 pts</td>
+          <td class="mono item-title" id="t-sub-ngs">$53,868</td>
+        </tr>
+        <tr>
+          <td class="item-title">Pharmacogenomics (PGx)</td>
+          <td class="mono" id="t-cpt-pgx">81418</td>
+          <td class="mono" id="t-rate-pgx">$917.08</td>
+          <td class="mono" id="t-vol-pgx">80 pts</td>
+          <td class="mono item-title" id="t-sub-pgx">$73,366</td>
+        </tr>
+        <tr>
+          <td class="item-title">UTI Molecular Panel</td>
+          <td class="mono" id="t-cpt-uti">87506</td>
+          <td class="mono" id="t-rate-uti">$262.99</td>
+          <td class="mono" id="t-vol-uti">172 pts</td>
+          <td class="mono item-title" id="t-sub-uti">$45,234</td>
+        </tr>
+        <tr>
+          <td class="item-title">CGX Cancer Genetics</td>
+          <td class="mono" id="t-cpt-cgx">81432</td>
+          <td class="mono" id="t-rate-cgx">$1,303.95</td>
+          <td class="mono" id="t-vol-cgx">25 pts</td>
+          <td class="mono item-title" id="t-sub-cgx">$32,599</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">Combined Projected Monthly Billing Potential</td>
+          <td class="grand-total-amount" id="t-grand-total">$205,068</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="notice-card">
+      <strong>Allowable Fee Schedule Note:</strong> Modeled using CY2026 Clinical Laboratory Fee Schedule (CLFS) rates. Defaults reflect standard clinical panel codes. Use the CPT code buttons or the scenario toggle at the top right to model full comprehensive panel ceilings.
+    </div>
+
+    <div class="notice-card" style="margin-top: 10px;">
+      <strong>Compliance Assurance:</strong> Marketing retainers are fixed, fair-market-value fees. Remuneration is never based on the volume or value of referrals, tests, or clinical claims, in full compliance with AKS and EKRA regulations.
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Default values set to realistic standard baseline codes
+  const model = {
+    ngs: { vol: 22, rate: 2448.56, cpt: '81443' },
+    pgx: { vol: 80, rate: 917.08,  cpt: '81418' },
+    uti: { vol: 172, rate: 262.99, cpt: '87506' },
+    cgx: { vol: 25, rate: 1303.95, cpt: '81432' }
+  };
+
+  const planTiers = {
+    starter: { ngs: 9, pgx: 32, uti: 66, cgx: 10 },
+    growth:  { ngs: 22, pgx: 80, uti: 172, cgx: 25 },
+    scale:   { ngs: 46, pgx: 164, uti: 355, cgx: 50 },
+    custom:  { ngs: 22, pgx: 80, uti: 172, cgx: 25 }
+  };
+
+  const scenarios = {
+    standard: {
+      ngs: { rate: 2448.56, cpt: '81443' },
+      pgx: { rate: 917.08,  cpt: '81418' },
+      uti: { rate: 262.99,  cpt: '87506' },
+      cgx: { rate: 1303.95, cpt: '81432' }
+    },
+    max: {
+      ngs: { rate: 4780.00, cpt: '81415' },
+      pgx: { rate: 1336.09, cpt: '0347U' },
+      uti: { rate: 416.78,  cpt: '87507' },
+      cgx: { rate: 2919.60, cpt: '81455' }
+    }
+  };
+
+  const formatCurrency = (val) => '$' + Math.round(val).toLocaleString('en-US');
+  const formatExact = (val) => '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function setBillingScenario(mode) {
+    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-mode-' + mode).classList.add('active');
+
+    const sc = scenarios[mode];
+    ['ngs', 'pgx', 'uti', 'cgx'].forEach(k => {
+      model[k].rate = sc[k].rate;
+      model[k].cpt = sc[k].cpt;
+
+      // Update active chip
+      const chips = document.querySelectorAll('#cpts-' + k + ' .cpt-btn');
+      chips.forEach(btn => {
+        if (btn.dataset.cpt === sc[k].cpt) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      document.getElementById('rate-' + k + '-disp').textContent = formatCurrency(model[k].rate);
+    });
+
+    updateAll();
+  }
+
+  function onSliderChange(key) {
+    const val = parseInt(document.getElementById('slider-' + key).value);
+    model[key].vol = val;
+    document.getElementById('vol-' + key + '-disp').textContent = val + ' pts';
+    updateAll();
+  }
+
+  function onCPTSelect(key, btn) {
+    document.querySelectorAll('#cpts-' + key + ' .cpt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    model[key].rate = parseFloat(btn.dataset.rate);
+    model[key].cpt = btn.dataset.cpt;
+    document.getElementById('rate-' + key + '-disp').textContent = formatCurrency(model[key].rate);
+    updateAll();
+  }
+
+  function selectTier(tierName) {
+    document.querySelectorAll('.tier-box').forEach(box => box.classList.remove('active'));
+    const target = document.querySelector('.tier-box.' + tierName);
+    if (target) target.classList.add('active');
+
+    const vols = planTiers[tierName];
+    ['ngs', 'pgx', 'uti', 'cgx'].forEach(k => {
+      if (vols[k] !== undefined) {
+        model[k].vol = vols[k];
+        const slider = document.getElementById('slider-' + k);
+        if (slider) slider.value = vols[k];
+        const disp = document.getElementById('vol-' + k + '-disp');
+        if (disp) disp.textContent = vols[k] + ' pts';
+      }
+    });
+    updateAll();
+  }
+
+  function updateAll() {
+    let grandTotal = 0;
+    ['ngs', 'pgx', 'uti', 'cgx'].forEach(k => {
+      const sub = model[k].vol * model[k].rate;
+      grandTotal += sub;
+
+      const subElem = document.getElementById('sub-' + k + '-disp');
+      if (subElem) subElem.textContent = formatCurrency(sub);
+
+      document.getElementById('t-cpt-' + k).textContent = model[k].cpt;
+      document.getElementById('t-rate-' + k).textContent = formatExact(model[k].rate);
+      document.getElementById('t-vol-' + k).textContent = model[k].vol + ' pts';
+      document.getElementById('t-sub-' + k).textContent = formatCurrency(sub);
+    });
+
+    document.getElementById('t-grand-total').textContent = formatCurrency(grandTotal);
+  }
+
+  // Initialize
+  updateAll();
+</script>
+
+</body>
+</html>
