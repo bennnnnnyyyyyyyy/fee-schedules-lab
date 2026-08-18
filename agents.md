@@ -1,5 +1,9 @@
 # AGENTS.md
 
+# rules
+
+no browser preview inside chat
+
 ## Documentation Hygiene
 
 - After any code edit, update the markdown docs that are impacted by the change.
