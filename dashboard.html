@@ -713,7 +713,7 @@
 
   <div class="nav-controls">
     <div class="scenario-toggle-wrap">
-      <button class="scenario-btn active" id="btn-mode-standard" onclick="setBillingScenario('standard')">Standard Baseline</button>
+      <button class="scenario-btn active" id="btn-mode-standard" onclick="setBillingScenario('standard')">Conservative Baseline</button>
       <button class="scenario-btn" id="btn-mode-max" onclick="setBillingScenario('max')">Max Allowable Ceiling</button>
     </div>
     <div class="badge-live">
@@ -847,27 +847,27 @@
         </div>
         <div class="camp-rate-box">
           <div class="camp-rate-label">Allowable / Claim</div>
-          <div class="camp-rate-amount" id="rate-ngs-disp">$2,449</div>
+          <div class="camp-rate-amount" id="rate-ngs-disp">$846</div>
         </div>
       </div>
       <div class="camp-body">
         <div class="vol-row">
-          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-label">Estimated Delivered Patients / Month</span>
           <span class="vol-display" id="vol-ngs-disp">22 pts</span>
         </div>
         <input type="range" id="slider-ngs" min="1" max="100" value="22" oninput="onSliderChange('ngs')">
 
-        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-select-title">CPT Billing Code Options (Lowest to Highest)</div>
         <div class="cpt-chips-group" id="cpts-ngs">
-          <button class="cpt-btn active" data-rate="2448.56" data-cpt="81443" onclick="onCPTSelect('ngs', this)">81443 · $2,449 (Standard Inh. Panel)</button>
+          <button class="cpt-btn active" data-rate="846.27" data-cpt="81407" onclick="onCPTSelect('ngs', this)">81407 · $846 (Mopath Level 8 - Targeted)</button>
           <button class="cpt-btn" data-rate="2000.00" data-cpt="81408" onclick="onCPTSelect('ngs', this)">81408 · $2,000 (Mopath Level 9)</button>
-          <button class="cpt-btn" data-rate="846.27" data-cpt="81407" onclick="onCPTSelect('ngs', this)">81407 · $846 (Mopath Level 8)</button>
+          <button class="cpt-btn" data-rate="2448.56" data-cpt="81443" onclick="onCPTSelect('ngs', this)">81443 · $2,449 (Severe Inh. Panel)</button>
           <button class="cpt-btn" data-rate="4780.00" data-cpt="81415" onclick="onCPTSelect('ngs', this)">81415 · $4,780 (Full Exome Proband)</button>
         </div>
 
         <div class="camp-subtotal-panel">
           <span class="subtotal-tag">Estimated Monthly Billing Total</span>
-          <span class="subtotal-figure" id="sub-ngs-disp">$53,868</span>
+          <span class="subtotal-figure" id="sub-ngs-disp">$18,618</span>
         </div>
       </div>
     </div>
@@ -884,27 +884,27 @@
         </div>
         <div class="camp-rate-box">
           <div class="camp-rate-label">Allowable / Claim</div>
-          <div class="camp-rate-amount" id="rate-pgx-disp">$917</div>
+          <div class="camp-rate-amount" id="rate-pgx-disp">$451</div>
         </div>
       </div>
       <div class="camp-body">
         <div class="vol-row">
-          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-label">Estimated Delivered Patients / Month</span>
           <span class="vol-display" id="vol-pgx-disp">80 pts</span>
         </div>
         <input type="range" id="slider-pgx" min="1" max="250" value="80" oninput="onSliderChange('pgx')">
 
-        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-select-title">CPT Billing Code Options (Lowest to Highest)</div>
         <div class="cpt-chips-group" id="cpts-pgx">
-          <button class="cpt-btn active" data-rate="917.08" data-cpt="81418" onclick="onCPTSelect('pgx', this)">81418 · $917 (Standard 6+ Gene Panel)</button>
-          <button class="cpt-btn" data-rate="450.91" data-cpt="81226" onclick="onCPTSelect('pgx', this)">81226 · $451 (CYP2D6 Targeted)</button>
+          <button class="cpt-btn active" data-rate="450.91" data-cpt="81226" onclick="onCPTSelect('pgx', this)">81226 · $451 (CYP2D6 Targeted)</button>
           <button class="cpt-btn" data-rate="676.37" data-cpt="0070U" onclick="onCPTSelect('pgx', this)">0070U · $676 (CYP2D6 Multi-Variant)</button>
+          <button class="cpt-btn" data-rate="917.08" data-cpt="81418" onclick="onCPTSelect('pgx', this)">81418 · $917 (Standard 6+ Gene Panel)</button>
           <button class="cpt-btn" data-rate="1336.09" data-cpt="0347U" onclick="onCPTSelect('pgx', this)">0347U · $1,336 (16-Gene Full Panel)</button>
         </div>
 
         <div class="camp-subtotal-panel">
           <span class="subtotal-tag">Estimated Monthly Billing Total</span>
-          <span class="subtotal-figure" id="sub-pgx-disp">$73,366</span>
+          <span class="subtotal-figure" id="sub-pgx-disp">$36,073</span>
         </div>
       </div>
     </div>
@@ -921,27 +921,27 @@
         </div>
         <div class="camp-rate-box">
           <div class="camp-rate-label">Allowable / Claim</div>
-          <div class="camp-rate-amount" id="rate-uti-disp">$263</div>
+          <div class="camp-rate-amount" id="rate-uti-disp">$128</div>
         </div>
       </div>
       <div class="camp-body">
         <div class="vol-row">
-          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-label">Estimated Delivered Patients / Month</span>
           <span class="vol-display" id="vol-uti-disp">172 pts</span>
         </div>
         <input type="range" id="slider-uti" min="1" max="500" value="172" oninput="onSliderChange('uti')">
 
-        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-select-title">CPT Billing Code Options (Lowest to Highest)</div>
         <div class="cpt-chips-group" id="cpts-uti">
-          <button class="cpt-btn active" data-rate="262.99" data-cpt="87506" onclick="onCPTSelect('uti', this)">87506 · $263 (Standard 6-11 Targets)</button>
+          <button class="cpt-btn active" data-rate="128.29" data-cpt="87505" onclick="onCPTSelect('uti', this)">87505 · $128 (Targeted 3-5 Pathogens)</button>
+          <button class="cpt-btn" data-rate="262.99" data-cpt="87506" onclick="onCPTSelect('uti', this)">87506 · $263 (Standard 6-11 Targets)</button>
           <button class="cpt-btn" data-rate="416.78" data-cpt="87507" onclick="onCPTSelect('uti', this)">87507 · $417 (Comprehensive 12-25)</button>
-          <button class="cpt-btn" data-rate="128.29" data-cpt="87505" onclick="onCPTSelect('uti', this)">87505 · $128 (Targeted 3-5 Pathogens)</button>
-          <button class="cpt-btn" data-rate="70.20" data-cpt="87801" onclick="onCPTSelect('uti', this)">87801 · $70 (Multi-Organism DNA)</button>
+          <button class="cpt-btn" data-rate="416.78" data-cpt="0504U" onclick="onCPTSelect('uti', this)">0504U · $417 (17 Pathogen Panel)</button>
         </div>
 
         <div class="camp-subtotal-panel">
           <span class="subtotal-tag">Estimated Monthly Billing Total</span>
-          <span class="subtotal-figure" id="sub-uti-disp">$45,234</span>
+          <span class="subtotal-figure" id="sub-uti-disp">$22,066</span>
         </div>
       </div>
     </div>
@@ -958,27 +958,27 @@
         </div>
         <div class="camp-rate-box">
           <div class="camp-rate-label">Allowable / Claim</div>
-          <div class="camp-rate-amount" id="rate-cgx-disp">$1,304</div>
+          <div class="camp-rate-amount" id="rate-cgx-disp">$598</div>
         </div>
       </div>
       <div class="camp-body">
         <div class="vol-row">
-          <span class="vol-label">Delivered Patients / Month</span>
+          <span class="vol-label">Estimated Delivered Patients / Month</span>
           <span class="vol-display" id="vol-cgx-disp">25 pts</span>
         </div>
         <input type="range" id="slider-cgx" min="1" max="150" value="25" oninput="onSliderChange('cgx')">
 
-        <div class="cpt-select-title">CPT Billing Code Options</div>
+        <div class="cpt-select-title">CPT Billing Code Options (Lowest to Highest)</div>
         <div class="cpt-chips-group" id="cpts-cgx">
-          <button class="cpt-btn active" data-rate="1303.95" data-cpt="81432" onclick="onCPTSelect('cgx', this)">81432 · $1,304 (Standard Hereditary Breast/Ovarian)</button>
-          <button class="cpt-btn" data-rate="1303.95" data-cpt="81435" onclick="onCPTSelect('cgx', this)">81435 · $1,304 (Hereditary Colon / Lynch)</button>
-          <button class="cpt-btn" data-rate="597.91" data-cpt="81445" onclick="onCPTSelect('cgx', this)">81445 · $598 (Targeted 5-50 Genes)</button>
-          <button class="cpt-btn" data-rate="2919.60" data-cpt="81455" onclick="onCPTSelect('cgx', this)">81455 · $2,920 (Comprehensive 51+ Gene NGS)</button>
+          <button class="cpt-btn active" data-rate="597.91" data-cpt="81445" onclick="onCPTSelect('cgx', this)">81445 · $598 (Targeted 5-50 Genes)</button>
+          <button class="cpt-btn" data-rate="1303.95" data-cpt="81432" onclick="onCPTSelect('cgx', this)">81432 · $1,304 (Hereditary Breast/Ovarian)</button>
+          <button class="cpt-btn" data-rate="1824.88" data-cpt="81162" onclick="onCPTSelect('cgx', this)">81162 · $1,825 (BRCA1/2 Full Seq & Dup/Del)</button>
+          <button class="cpt-btn" data-rate="2919.60" data-cpt="81455" onclick="onCPTSelect('cgx', this)">81455 · $2,920 (51+ Gene NGS)</button>
         </div>
 
         <div class="camp-subtotal-panel">
           <span class="subtotal-tag">Estimated Monthly Billing Total</span>
-          <span class="subtotal-figure" id="sub-cgx-disp">$32,599</span>
+          <span class="subtotal-figure" id="sub-cgx-disp">$14,948</span>
         </div>
       </div>
     </div>
@@ -1080,7 +1080,7 @@
       <thead>
         <tr>
           <th>Campaign Line</th>
-          <th>Target CPT Code</th>
+          <th>Selected CPT Code</th>
           <th>Allowable / Claim (CLFS '26)</th>
           <th>Monthly Patient Target</th>
           <th>Monthly Gross Allowable</th>
@@ -1089,43 +1089,43 @@
       <tbody>
         <tr>
           <td class="item-title">Immunodeficiency NGS</td>
-          <td class="mono" id="t-cpt-ngs">81443</td>
-          <td class="mono" id="t-rate-ngs">$2,448.56</td>
+          <td class="mono" id="t-cpt-ngs">81407</td>
+          <td class="mono" id="t-rate-ngs">$846.27</td>
           <td class="mono" id="t-vol-ngs">22 pts</td>
-          <td class="mono item-title" id="t-sub-ngs">$53,868</td>
+          <td class="mono item-title" id="t-sub-ngs">$18,618</td>
         </tr>
         <tr>
           <td class="item-title">Pharmacogenomics (PGx)</td>
-          <td class="mono" id="t-cpt-pgx">81418</td>
-          <td class="mono" id="t-rate-pgx">$917.08</td>
+          <td class="mono" id="t-cpt-pgx">81226</td>
+          <td class="mono" id="t-rate-pgx">$450.91</td>
           <td class="mono" id="t-vol-pgx">80 pts</td>
-          <td class="mono item-title" id="t-sub-pgx">$73,366</td>
+          <td class="mono item-title" id="t-sub-pgx">$36,073</td>
         </tr>
         <tr>
           <td class="item-title">UTI Molecular Panel</td>
-          <td class="mono" id="t-cpt-uti">87506</td>
-          <td class="mono" id="t-rate-uti">$262.99</td>
+          <td class="mono" id="t-cpt-uti">87505</td>
+          <td class="mono" id="t-rate-uti">$128.29</td>
           <td class="mono" id="t-vol-uti">172 pts</td>
-          <td class="mono item-title" id="t-sub-uti">$45,234</td>
+          <td class="mono item-title" id="t-sub-uti">$22,066</td>
         </tr>
         <tr>
           <td class="item-title">CGX Cancer Genetics</td>
-          <td class="mono" id="t-cpt-cgx">81432</td>
-          <td class="mono" id="t-rate-cgx">$1,303.95</td>
+          <td class="mono" id="t-cpt-cgx">81445</td>
+          <td class="mono" id="t-rate-cgx">$597.91</td>
           <td class="mono" id="t-vol-cgx">25 pts</td>
-          <td class="mono item-title" id="t-sub-cgx">$32,599</td>
+          <td class="mono item-title" id="t-sub-cgx">$14,948</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="4">Combined Projected Monthly Billing Potential</td>
-          <td class="grand-total-amount" id="t-grand-total">$205,068</td>
+          <td class="grand-total-amount" id="t-grand-total">$91,705</td>
         </tr>
       </tfoot>
     </table>
 
     <div class="notice-card">
-      <strong>Allowable Fee Schedule Note:</strong> Modeled using CY2026 Clinical Laboratory Fee Schedule (CLFS) rates. Defaults reflect standard clinical panel codes. Use the CPT code buttons or the scenario toggle at the top right to model full comprehensive panel ceilings.
+      <strong>Allowable Fee Schedule Note:</strong> Modeled using CY2026 Clinical Laboratory Fee Schedule (CLFS) rates. Defaults reflect conservative, entry-level targeted codes. Click any CPT chip above or switch to "Max Allowable Ceiling" mode to view comprehensive panel potential.
     </div>
 
     <div class="notice-card" style="margin-top: 10px;">
@@ -1136,12 +1136,12 @@
 </main>
 
 <script>
-  // Default values set to realistic standard baseline codes
+  // Default values set to the lowest/conservative baseline entry codes
   const model = {
-    ngs: { vol: 22, rate: 2448.56, cpt: '81443' },
-    pgx: { vol: 80, rate: 917.08,  cpt: '81418' },
-    uti: { vol: 172, rate: 262.99, cpt: '87506' },
-    cgx: { vol: 25, rate: 1303.95, cpt: '81432' }
+    ngs: { vol: 22, rate: 846.27, cpt: '81407' },
+    pgx: { vol: 80, rate: 450.91, cpt: '81226' },
+    uti: { vol: 172, rate: 128.29, cpt: '87505' },
+    cgx: { vol: 25, rate: 597.91, cpt: '81445' }
   };
 
   const planTiers = {
@@ -1153,10 +1153,10 @@
 
   const scenarios = {
     standard: {
-      ngs: { rate: 2448.56, cpt: '81443' },
-      pgx: { rate: 917.08,  cpt: '81418' },
-      uti: { rate: 262.99,  cpt: '87506' },
-      cgx: { rate: 1303.95, cpt: '81432' }
+      ngs: { rate: 846.27, cpt: '81407' },
+      pgx: { rate: 450.91, cpt: '81226' },
+      uti: { rate: 128.29, cpt: '87505' },
+      cgx: { rate: 597.91, cpt: '81445' }
     },
     max: {
       ngs: { rate: 4780.00, cpt: '81415' },
